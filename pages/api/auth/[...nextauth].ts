@@ -6,8 +6,7 @@ import { compare } from 'bcrypt';
 import prismadb from '@/lib/prismadb';
 import { PrismaAdapter } from '@next-auth/prisma-adapter';
 
-
-export default NextAuth([
+export default NextAuth({
     providers: [
     Credentials({
         id: 'credentials',
@@ -18,7 +17,7 @@ export default NextAuth([
                 type: 'text',                
             },
             password: {
-                label: 'Password';
+                label: 'Password',
                 type: 'password'
             }
         },
@@ -56,6 +55,6 @@ export default NextAuth([
         secret: process.env.NEXTAUTH_JWT_SECRET,
       },
       secret: process.env.NEXTAUTH_SECRET
-]);
+});
 
-export default NextAuth(authOptions);
+// export default NextAuth(authOptions);
